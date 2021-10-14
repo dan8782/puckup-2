@@ -22,12 +22,13 @@ console.log(r.urls)
 setInterval(function() {
   s+=1;
   document.title='svyat pernul '+s+'raz';
-}, 100);
+}, 1000);
 
 export class App extends React.Component {
   constructor() {
     super();
-    this.places = r.urls;
+    /*this.places = r.urls;*/
+    this.places = ['Вася','Cвят','Даня','Сеня'];
   }
 
 
@@ -39,7 +40,7 @@ export class App extends React.Component {
         background: 'linear-gradient(to right, #ffdde1, #ee9ca7)',
       }} >
 
-        <h1>Кто завтра сладко обдристает штаны</h1>
+        <h1>Кто будет питьы</h1>
         <Wheel items={this.places} />
 
       </div>
