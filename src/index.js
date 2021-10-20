@@ -4,6 +4,7 @@ import ReactDOM from 'react-dom';
 import Wheel from './components/wheel';
 
 import './styles.css';
+import {Redirect} from "react-router-dom";
 
 const theUrl = 'https://qr-pickuper.herokuapp.com/urls/1'
 function httpGet(theUrl)
@@ -16,35 +17,33 @@ function httpGet(theUrl)
 
 var r;
 var s=0;
-r = JSON.parse(httpGet(theUrl))
-console.log(r.urls)
 
-setInterval(function() {
-  s+=1;
-  document.title='svyat pernul '+s+'raz';
-}, 1000);
+r = JSON.parse(httpGet(theUrl))
+const keys= Object.keys(r.data)
+console.log(keys[0])
+
+
 
 export class App extends React.Component {
+
   constructor() {
     super();
     /*this.places = r.urls;*/
-    this.places = ['Вася','Cвят','Даня','Сеня'];
+    this.places = keys;
   }
 
-
   render() {
-
     return (
       <div className="App" style={{
         Background: '#ee9ca7',
         background: 'linear-gradient(to right, #ffdde1, #ee9ca7)',
-      }} >
+      }}>
 
-        <h1>Кто будет питьы</h1>
+        <h1>Random text</h1>
+
         <Wheel items={this.places} />
 
       </div>
-
     );
   }
 }
