@@ -54,7 +54,28 @@ h1{
   border: solid transparent 20px;
   border-left-width: 0;
 }
+.popup-content {
+  margin: auto;
+  background: rgb(255, 255, 255);
+  text-align: center;
+  width: 50%;
+  height: 40%;
+  padding: 5px;
+}
+.popup-arrow {
+  color: rgb(255, 255, 255);
+}
+[role='tooltip'].popup-content {
+  width: 200px;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 0px 3px;
+}
 
+.popup-overlay {
+  background: rgba(0, 0, 0, 0.5);
+}
+[data-popup='tooltip'].popup-overlay {
+  background: transparent;
+}
 .wheel-container::before {
   right: 0px;
   border-right-color: var(--wheel-color);

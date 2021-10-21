@@ -1,5 +1,6 @@
 import React from 'react';
 import './index.css';
+import Popup from "reactjs-popup";
 
 
 import {Button, Header, Image, Modal, ModalDescription, Icon} from 'semantic-ui-react'
@@ -48,12 +49,6 @@ export default class Wheel extends React.Component {
 
       //console.log(page)
 
-      setTimeout(function(){
-        //window.location.href = page;
-          //this.props.history.push('/');
-          document.location.href = "../../after.html";
-
-      }, 5 * 1000);
 
 
       this.setState({ selectedItem });
@@ -76,15 +71,21 @@ export default class Wheel extends React.Component {
 //
     const spinning = selectedItem !== null ? 'spinning' : '';
     return (
-      <div className="wheel-container">
-        <div className={`wheel ${spinning}`} style={wheelVars} onClick={this.selectItem}>
-          {items.map((item, index) => (
-            <div className="wheel-item" key={index} style={{ '--item-nb': index }}>
-              {item}
-            </div>
-          ))}
-        </div>
+      <div>
+        <Popup trigger={<div className="wheel-container">
+          <div className={`wheel ${spinning}`} style={wheelVars} onClick={this.selectItem}>
+            {items.map((item, index) => (
+                <div className="wheel-item" key={index} style={{ '--item-nb': index }}>
+                  {item}
+                </div>
+            ))}
+          </div>
+        </div>} position="center" >
+          <script src={"index.js"}>setTimeout("alert('Привет')", 1000)</script>
+          <div className={'popup'}>Зачем нажал?</div>
+        </Popup>
       </div>
+
     );
   }
 }
